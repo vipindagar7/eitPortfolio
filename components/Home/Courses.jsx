@@ -89,6 +89,15 @@ export default function CoursesCarousel() {
                     <p className="text-xs md:text-sm text-gray-600 line-clamp-3">
                       {course.description}
                     </p>
+                    {
+                      course.highlights && (
+                        <ul className="text-xs md:text-sm text-gray-700 list-disc list-inside mt-2">
+                          {course.highlights.map((point, idx) => (
+                            <li key={idx}>{point}</li>
+                          ))}
+                        </ul>
+                      )
+                    }
                   </CardContent>
                 </Card>
               </div>
