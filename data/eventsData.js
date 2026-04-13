@@ -27,4 +27,11 @@ export const eventsData = [
         description: "24-hour coding competition.",
         image: "/public/events/event4.jpg",
     },
+    {
+        id: 5,
+        title: "PTM",
+        date: "June 22, 2026",
+        description: "Parents-Teachers Meeting to discuss student progress.",
+        image: "/public/events/event5.jpg",
+    },
 ]
