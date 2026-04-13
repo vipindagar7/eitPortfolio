@@ -3,7 +3,7 @@
 export const coursesData = [
   {
     id: "cse",
-    name: "Computer Science & Engineering",
+    name: "Computer  & Engineering",
     duration: "4 Years B.Tech",
     description: "Specialization in software development, AI/ML, web technologies and cybersecurity",
     highlights: [
