@@ -2,6 +2,7 @@ import About from "@/components/Home/About";
 import Achievements from "@/components/Home/Achivements";
 import AdmissionCTA from "@/components/Home/AdmissionCTA";
 import CampusLife from "@/components/Home/CampusLife";
+import ClubsSection from "@/components/Home/Club";
 import Contact from "@/components/Home/Contact";
 import Courses from "@/components/Home/Courses";
 import Events from "@/components/Home/Events";
@@ -32,6 +33,7 @@ export default function Home() {
       <Achievements />
       <CampusLife />
       <Events />
+      <ClubsSection/>
       <Testimonials />
       <FAQ />
       <AdmissionCTA />
