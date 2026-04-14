@@ -4,14 +4,15 @@ import { useState, useEffect } from "react"
 import * as Icons from "lucide-react" // ✅ import all icons
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
-import { clubsOverview } from "@/data/clubData"
+import { clubs } from "@/data/clubData"
 import Link from "next/link"
+import ClubCard from "../Club/ClubCard"
 
 export default function ClubsCarousel() {
     const [index, setIndex] = useState(0)
     const [paused, setPaused] = useState(false)
 
-    const total = clubsOverview.length
+    const total = clubs.length
 
     const prev = () => setIndex((p) => (p - 1 + total) % total)
     const next = () => setIndex((p) => (p + 1) % total)
@@ -115,7 +116,7 @@ export default function ClubsCarousel() {
                     className="relative flex items-center justify-center h-[420px] max-w-6xl mx-auto"
                     style={{ perspective: "1000px" }}
                 >
-                    {clubsOverview.map((club, i) => {
+                    {clubs.map((club, i) => {
 
                         const Icon =
                             Icons[club.icon] || Icons.HelpCircle
@@ -153,58 +154,11 @@ export default function ClubsCarousel() {
                                         border: `1px solid ${club.border}`,
                                     }}
                                 >
-                                    {/* Icon */}
-                                    <div className="w-10 h-10 flex items-center justify-center rounded-lg">
-                                        <Icon
-                                            className="w-5 h-5"
-                                            style={{ color: club.color }}
-                                        />
-                                    </div>
 
-                                    {/* Title */}
-                                    <div>
-                                        <h3 className="font-semibold text-sm"
-                                            style={{ color: club.color }}
-                                        >
-                                            {club.society}
-                                        </h3>
-                                        <p
-                                            className="text-xs mt-1"
-                                            style={{ color: club.color }}
-                                        >
-                                            {club.tagline}
-                                        </p>
-                                    </div>
+                                    <ClubCard key={club.slug} club={club} index={i} />
 
-                                    {/* Description */}
-                                    <p className="text-xs text-[#7A90A8] line-clamp-3">
-                                        {club.description}
-                                    </p>
 
-                                    {/* Subclubs */}
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {club.subclubs.slice(0, 3).map((sub, j) => (
-                                            <span
-                                                key={j}
-                                                className="text-[10px] px-2 py-0.5 rounded-full border"
-                                                style={{
-                                                    background: "rgba(255,255,255,0.05)",
-                                                    color: club.color,
-                                                    border: `1px solid ${club.color}`
-                                                }}
-                                            >
-                                                {sub}
-                                            </span>
-                                        ))}
-                                    </div>
 
-                                    {/* Arrow */}
-                                    <div className="flex justify-end">
-                                        <ArrowRight
-                                            className="w-4 h-4"
-                                            style={{ color: club.color }}
-                                        />
-                                    </div>
                                 </div>
                             </div>
                         )
@@ -227,7 +181,7 @@ export default function ClubsCarousel() {
 
                 {/* Dots */}
                 <div className="flex justify-center gap-2 mt-6">
-                    {clubsOverview.map((_, i) => (
+                    {clubs.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => setIndex(i)}
@@ -237,7 +191,7 @@ export default function ClubsCarousel() {
                     ))}
                 </div>
             </div>
-         
+
 
 
         </section >
